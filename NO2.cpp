@@ -8,7 +8,7 @@ struct Node {
 	struct Node *next; 
 }; 
  
-void largestElement(struct Node *head) 
+int largestElement(struct Node *head) 
 { 
 	 
 	int max = INT_MIN; 
@@ -18,10 +18,10 @@ void largestElement(struct Node *head)
 			max = head->data; 
 		head = head->next; 
 	} 
-	printf("%d",max); 
+	return max;
 } 
  
-void smallestElement(struct Node *head) 
+int smallestElement(struct Node *head) 
 { 
 
 	int min = INT_MAX; 
@@ -33,7 +33,7 @@ void smallestElement(struct Node *head)
 
 		head = head->next; 
 	} 
-	printf("%d",min); 
+	return min; 
 } 
 
  
@@ -73,11 +73,10 @@ int main()
     printf("Linked list : \n");
     printList(head); 
 	
-    printf("\nElemen terbesar : \n"); 
-    largestElement(head);
+	int maxval = largestElement(head);
+	int minval = smallestElement(head);
+	printf("\nRange nya adalah : %d",maxval - minval);
 	
-    printf("\n\nElemen terkecil : \n");  
-	smallestElement(head); 
 
 	return 0; 
 } 
